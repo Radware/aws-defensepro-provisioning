@@ -22,26 +22,31 @@ This project uses Terraform to provision a DefensePro setup in AWS. The setup in
 
 1. **Clone the Repository**:
     ```bash
-    git clone <repository-url>
-    cd <repository-directory>
+    git clone https://github.com/chensagi/Terraform-AWS-DP.git
+    cd Terraform-AWS-DP
     ```
 
-2. **Initialize the Terraform workspace**:
+2. **Copy the example variables file**:
+    ```bash
+    cp terraform.tfvars.example terraform.tfvars
+    ```
+
+3. **Initialize the Terraform workspace**:
     ```bash
     terraform init
     ```
 
-3. **Plan the Infrastructure**:
+4. **Plan the Infrastructure**:
     ```bash
     terraform plan
     ```
 
-4. **Apply the Configuration**:
+5. **Apply the Configuration**:
     ```bash
     terraform apply
     ```
 
-5. **Destroy the Infrastructure** (when no longer needed):
+6. **Destroy the Infrastructure** (when no longer needed):
     ```bash
     terraform destroy
     ```
@@ -52,6 +57,7 @@ This project uses Terraform to provision a DefensePro setup in AWS. The setup in
 - `variables.tf`: Defines all the input variables for the project.
 - `outputs.tf`: Defines the outputs for the project.
 - `defensepro-setup.sh`: A script that will be uploaded to an S3 bucket and used for configuring the DefensePro instances.
+- `terraform.tfvars.example`: An example of the variables file that needs to be copied to `terraform.tfvars` and customized for your environment.
 - `README.md`: This file, providing an overview and instructions for using the project.
 
 ## Variables
