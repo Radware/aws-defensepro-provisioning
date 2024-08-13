@@ -9,7 +9,6 @@ This project uses Terraform to provision a DefensePro setup in AWS. The setup in
 3. [Project Structure](#project-structure)
 4. [Variables](#variables)
 5. [Outputs](#outputs)
-6. [License](#license)
 
 ## Prerequisites
 
