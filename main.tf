@@ -204,15 +204,20 @@ resource "aws_network_interface" "eth1_2" {
   tags = local.common_tags
 }
 
+/*
 resource "local_file" "user_data_script" {
-  content  = <<-EOF
+  content  = <<-EOT
+              #!/bin/bash
+              FILE="/mnt/disk/InitialConfig"
+              /bin/cat <<EOF > $FILE
               net traffic-encapsulation status set 1
               net traffic-encapsulation protocol set Geneve
               net traffic-encapsulation port set 6081
-              net health-check interface set "Management and Data interfaces"
+              net health-check interface set mgmt
               net health-check port set 18000
               net health-check interface set 1
               EOF
+  EOT
   filename = "${path.module}/defensepro-setup.sh"
 }
 
@@ -288,13 +293,24 @@ resource "aws_iam_instance_profile" "ec2_s3_access_profile" {
   role = aws_iam_role.ec2_s3_access.name
 }
 
+*/
+
 resource "aws_instance" "defensepro_1" {
   ami           = var.defensepro_ami_id
-  iam_instance_profile = aws_iam_instance_profile.ec2_s3_access_profile.name
+  #iam_instance_profile = aws_iam_instance_profile.ec2_s3_access_profile.name
   instance_type = var.instance_type
-  user_data = <<-EOF
-      s3://${aws_s3_bucket.user_data_bucket.bucket}/init_conf,${var.aws_region}
-      EOF
+  user_data = <<-EOT
+              #!/bin/bash
+              FILE="/mnt/disk/InitialConfig"
+              /bin/cat <<EOF > $FILE
+              net traffic-encapsulation status set 1
+              net traffic-encapsulation protocol set Geneve
+              net traffic-encapsulation port set 6081
+              net health-check interface set mgmt
+              net health-check port set 18000
+              net health-check interface set 1
+              EOF
+  EOT
 
   network_interface {
     device_index         = 0
@@ -315,11 +331,20 @@ resource "aws_instance" "defensepro_1" {
 
 resource "aws_instance" "defensepro_2" {
   ami           = var.defensepro_ami_id
-  iam_instance_profile = aws_iam_instance_profile.ec2_s3_access_profile.name
+  #iam_instance_profile = aws_iam_instance_profile.ec2_s3_access_profile.name
   instance_type = var.instance_type
-  user_data = <<-EOF
-      https://${aws_s3_bucket.user_data_bucket.bucket}.${var.aws_region}.amazonaws.com/init_conf,${var.aws_region}
-      EOF
+  user_data = <<-EOT
+              #!/bin/bash
+              FILE="/mnt/disk/InitialConfig"
+              /bin/cat <<EOF > $FILE
+              net traffic-encapsulation status set 1
+              net traffic-encapsulation protocol set Geneve
+              net traffic-encapsulation port set 6081
+              net health-check interface set mgmt
+              net health-check port set 18000
+              net health-check interface set 1
+              EOF
+  EOT
 
   network_interface {
     device_index         = 0
