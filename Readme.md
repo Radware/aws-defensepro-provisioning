@@ -50,7 +50,6 @@ This project uses Terraform to provision a DefensePro setup in AWS. The setup in
 - `main.tf`: The main Terraform file that includes all the resources and configurations.
 - `variables.tf`: Defines all the input variables for the project.
 - `outputs.tf`: Defines the outputs for the project.
-- `defensepro-setup.sh`: A script that will be uploaded to an S3 bucket and used for configuring the DefensePro instances.
 - `terraform.tfvars.example`: An example of the variables file that needs to be copied to `terraform.tfvars` and customized for your environment.
 - `README.md`: This file, providing an overview and instructions for using the project.
 
