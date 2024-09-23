@@ -71,7 +71,7 @@ This project uses Terraform to provision a DefensePro setup in AWS. The setup in
 | `availability_zone_suffix_2`  | string | `b`             | The second availability zone suffix to use                         |
 | `defensepro_ami_id`           | string | N/A             | The AMI ID for DefensePro (must be provided)                       |
 | `instance_type`               | string | `r5dn.large`    | The instance type to use for DefensePro                            |
-| `admin_computer_network_for_ssh`| string | `94.188.248.75/32` | Your IP address for SSH access                                  |
+| `admin_computer_network_for_ssh`| string | `0.0.0.0/0` | Your IP address for SSH access                                  |
 | `deployment_index`            | string | N/A             | A number to include in resource names                              |
 | `project_name`                | string | `MyProject`     | The name of the project                                            |
 

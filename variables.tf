@@ -79,7 +79,7 @@ variable "instance_type" {
 variable "admin_computer_network_for_ssh" {
   description = "Your IP address for SSH access"
   type        = string
-  default     = "94.188.248.75/32"
+  default     = "0.0.0.0/0"
 }
 
 variable "deployment_index" {
