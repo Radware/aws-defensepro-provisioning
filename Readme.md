@@ -19,12 +19,7 @@ This project uses Terraform to provision a DefensePro setup in AWS. The setup in
 
 ## Usage
 
-1. **Clone the Repository**:
-    ```bash
-    git clone https://github.com/chensagi/Terraform-AWS-DP.git
-    cd Terraform-AWS-DP
-    ```
-
+1. **Clone this Repository**
 2. **Copy the example variables file**:
     ```bash
     cp terraform.tfvars.example terraform.tfvars
